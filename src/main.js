@@ -1,3 +1,5 @@
+import { h, render } from 'preact';
+import App from './App';
 import './main.css';
 
-document.body.textContent = 'hello';
+render(<App/>, document.body);
