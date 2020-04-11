@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './src/main.ts',
+    main: './src/main.tsx',
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -13,8 +13,11 @@ module.exports = {
   module: {
     rules: [
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-      { test: /\.ts$/, exclude: /node_modules/, use: ['babel-loader', 'ts-loader'] },
+      { test: /\.tsx?$/, exclude: /node_modules/, use: ['babel-loader', 'ts-loader'] },
     ],
+  },
+  resolve: {
+    extensions: [".js", ".ts", ".tsx"],
   },
   plugins: [
     new CleanWebpackPlugin(),
